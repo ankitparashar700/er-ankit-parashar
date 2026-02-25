@@ -25,6 +25,7 @@ nav.navbar-wrapper a:hover {
   );
   backdrop-filter: blur(10px);
   /* background-image: url(../public/assets/images/headerNav.jpeg); */
+  padding: 1rem 2rem;
 }
 .scrolled {
   background: linear-gradient(

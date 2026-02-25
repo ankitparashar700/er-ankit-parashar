@@ -8,7 +8,7 @@ import { MailIcon } from "@heroicons/react/outline";
 
 // import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
-const HeroSection = () => {
+const Hero = () => {
   const [open, setOpen] = useState(false);
 
   const cancelButtonRef = useRef(null);
@@ -47,54 +47,69 @@ const HeroSection = () => {
   return (
     <>
       <div
-        className={`bg-white ${styles.wrapper_image} ${styles.wrapper_styles}`}
+        className={`bg-white ${styles.wrapper_image} ${styles.wrapper_styles} shadow-lg rounded-lg `}
         id={"about"}
       >
-        <div className="container mx-auto px-4 py-20">
-          <div className="flex flex-col md:flex-row md:items-center">
-            <div className="md:w-1/2 w-full">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 font-serif">
-                Hello, I'm Ankit Parashar
+        <div className="container mx-auto px-4 py-12 md:py-24">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+
+            {/* Text Content Block */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-1">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900 font-serif leading-tight">
+                Hello, I'm <span className="text-blue-600">Ankit Parashar</span>
               </h1>
-              <p
-                className={`text-lg md:text-xl text-gray-600  mb-8 ${styles.description}`}
-              >
-                I am a MERN FULL STACK DEVELOPER 💻 , I have in depth knowledge
-                of HTML5, CSS3, Vanilla JavaScript, React.js, Node.js,
-                Express.js, MongoDB and Git.
+
+              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                I am a <strong className="text-gray-800">MERN Full Stack Developer</strong> 💻.
+                I specialize in building scalable web applications using HTML5, CSS3,
+                JavaScript, React.js, Node.js, and MongoDB.
               </p>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 font-sans font-bold">
-                ⚡Technologies:
-              </p>
-              <ul className="list-disc list-inside mb-8 text-gray-600 font-sans">
-                <li>
-                  Front-end development using HTML5, CSS3, Vanilla JS, React,
-                  Redux.
-                </li>
-                <li>Backend development using Node, Express.</li>
-                <li>
-                  Architectural design for Relational Database Management
-                  Systems as well as for NoSQL database systems like MongoDB.
-                </li>
-                <li>Robust full-stack system design implementation.</li>
-                <li>
-                  Others : C, C++, JAVA, MY SQL, MOMENT.JS, DOTENV, CUSTOM-ENV,
-                  REST API, JWT, AWT, TOASTERS, LOADERS, etc.
-                </li>
-              </ul>
+
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center justify-center lg:justify-start gap-2">
+                  ⚡ Technologies
+                </h3>
+                <ul className="space-y-3 text-gray-600 text-left inline-block lg:block">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500">•</span>
+                    <span>Front-end: React, Next.js, Redux, Tailwind CSS</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500">•</span>
+                    <span>Backend: Node.js, Express, RESTful APIs, JWT</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500">•</span>
+                    <span>Databases: MongoDB (NoSQL) & SQL Systems</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500">•</span>
+                    <span>Tools: Git, AWS, Azure, Docker, CI/CD</span>
+                  </li>
+                </ul>
+              </div>
+
               <button
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 !text-white font-bold py-2 px-4 rounded shadow-lg active:scale-95 transition-transform"
                 onClick={() => setOpen(true)}
-                style={{ color: "white" }}
               >
                 Get in touch
               </button>
             </div>
-            <div className="md:w-1/2 md:pl-8 mt-12 md:mt-0 flex items-center self-start  hidden md:block">
-              <div className="relative h-auto md:h-full rounded-lg overflow-hidden">
-                <Image src={mypic} alt="Profile" height={1000} width={400} />
+
+            {/* Image Block */}
+            <div className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[450px] lg:h-[550px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                <Image
+                  src={mypic}
+                  alt="Ankit Parashar Profile"
+                  fill
+                  priority
+                  className="object-cover"
+                />
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -146,7 +161,7 @@ const HeroSection = () => {
                         </Dialog.Title>
                         <div className="mt-2 ">
                           <p className="text-sm text-gray-500">
-                            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                            <form class="bg-white  mb-4">
                               <div className="font-bold mb-5">
                                 Hire Me or Contact via Email !!!
                               </div>
@@ -252,4 +267,4 @@ const HeroSection = () => {
     </>
   );
 };
-export default HeroSection;
+export default Hero;

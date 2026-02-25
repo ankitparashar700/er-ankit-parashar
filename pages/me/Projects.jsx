@@ -1,5 +1,6 @@
 import React from "react";
 import imaggal from "../../public/assets/images/projects/imageGal.png";
+import Link from "next/link";
 function Projects() {
   const projectsData = [
     {
@@ -12,25 +13,7 @@ function Projects() {
       demo: "/weather",
       // code: "https://github.com/your-username/react-weather-app",
     },
-    {
-      id: 2,
-      title: "Image Gallery",
-      description:
-        " Image galleries are commonly used on websites and mobile applications to present portfolios, product catalogs, event photos, and more. ",
-      image: imaggal,
-      demo: "/imageGallery",
-      // code: "https://github.com/your-username/nextjs-ecommerce-store",
-    },
-    {
-      id: 3,
-      title: "Vue.js Blog",
-      description:
-        "A simple blog built with Vue.js that displays posts fetched from the JSONPlaceholder API. Features include search and pagination functionality.",
-      image: "https://i.imgur.com/5rKTvbx.jpg",
-      demo: "https://vuejs-blog-demo.netlify.app/",
-      // code: "https://github.com/your-username/vuejs-blog",
-    },
-  ];
+   ];
   return (
     <section id="projects">
       <div className="bg-gray-100 py-8">
@@ -52,6 +35,7 @@ export default Projects;
 function ProjectCard({ project }) {
   const imagesrc = project?.image?.src || project.image;
   return (
+    <Link href={project.demo} target="_self" rel="noopener noreferrer">
     <div className="bg-white shadow-md rounded-md overflow-hidden">
       <img
         src={imagesrc}
@@ -83,5 +67,6 @@ function ProjectCard({ project }) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
